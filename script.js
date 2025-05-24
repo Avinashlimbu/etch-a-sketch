@@ -12,7 +12,7 @@ function createDivs (numberOfDivs) {
 }
 
 
-createDivs(256);
+createDivs(512/2);
 
 /*
 Basic pseudo code for my understanding! 
