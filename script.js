@@ -10,10 +10,12 @@ function createDivs (numberOfDivs) {
 
     //mouse over event for the innner Divs
             innerDiv.addEventListener("mouseenter", function(){
-            this.style.backgroundColor = "lightblue";
+            innerDiv.classList.add("active");
         });
-            innerDiv.addEventListener("mouseleave", function(){
-            this.style.backgroundColor = "";
+        innerDiv.addEventListener("mouseleave", function(){
+        setTimeout(() => {
+                innerDiv.classList.add("passive")
+            }, 500);        
         });
     }
 }
