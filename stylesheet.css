@@ -1,0 +1,12 @@
+#container {
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+#container > .innerDiv {
+    border: 1px solid black;
+    height: 20px;
+    width: 20px;
+}
