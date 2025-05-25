@@ -33,4 +33,30 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
+}
+
+
+/*buttons design*/
+button {
+    color: black;
+    font-size: 16px;
+    background-color:salmon;
+    transition-duration: 0.2s;
+    text-align: center;
+    flex: 1;
+    padding: 10px;
+    border-radius: 4px;
+    min-width: 120px; /*limits the size to go smaller that what it is  */
+    white-space: nowrap; /*removes white-space and keeps the text as is  */
+}
+
+button:hover {
+    background-color: bisque;
+}
+
+.buttonContainer {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
 }

@@ -34,26 +34,26 @@ function resetGrid () {
     })
 }
 
-clearGrid.addEventListener('click', resetGrid);
+
 function onClick () {
     buttonGrid.addEventListener('click', function(){
-        prompt("Change grid by entering a number, max squares = 100");
+        let intake = prompt("Change grid by entering a number, max squares = 100");
+        if (intake > 100 || intake != Number) {
+            prompt('enter number value less than 100');
+        }
     });
 };
-
-
-
+onClick();
 
 function resetGrid () {
-    let boxes = document.querySelectorAll('.active');
+    let boxes = document.querySelectorAll('.innerDiv');
     boxes.forEach(box => {
-        box.style.backgroundColor = "white";
-        box.style.opacity = 1;
+        box.style.backgroundColor = "";
+        box.style.opacity = "";
+        box.classList.remove('active', 'passive');
     })
 }
     
-
-
 clearGrid.addEventListener('click', resetGrid);
 
 
