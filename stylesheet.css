@@ -17,8 +17,8 @@
 }
 
 #container > .active {
-    background-color: black;
     opacity: 1;
+    background-color: salmon;
 }
 
 #container > .passive {
@@ -27,9 +27,6 @@
     
 }
 
-body {
-    
-}
 
 #main {
     display: flex;

@@ -2,6 +2,7 @@
 
 const container = document.getElementById('container');
 
+
 function createDivs (numberOfDivs) {
     for (let i = 0; i < numberOfDivs; i++) {
     const innerDiv = document.createElement('div');
@@ -21,6 +22,39 @@ function createDivs (numberOfDivs) {
 }
 createDivs(512/2);
 
+//button function that helps prompt for change of grid
+
+const buttonGrid = document.querySelector('.buttonGrid');
+const clearGrid = document.querySelector('.clearGrid');
+function resetGrid () {
+    let boxes = document.querySelectorAll('.active');
+    boxes.forEach(box => {
+        box.style.backgroundColor = "white";
+        box.style.opacity = 1;
+    })
+}
+
+clearGrid.addEventListener('click', resetGrid);
+function onClick () {
+    buttonGrid.addEventListener('click', function(){
+        prompt("Change grid by entering a number, max squares = 100");
+    });
+};
+
+
+
+
+function resetGrid () {
+    let boxes = document.querySelectorAll('.active');
+    boxes.forEach(box => {
+        box.style.backgroundColor = "white";
+        box.style.opacity = 1;
+    })
+}
+    
+
+
+clearGrid.addEventListener('click', resetGrid);
 
 
 
