@@ -34,16 +34,22 @@ function resetGrid () {
     })
 }
 
-
+// this function is for new grid
 function onClick () {
     buttonGrid.addEventListener('click', function(){
-        let intake = prompt("Change grid by entering a number, max squares = 100");
-        if (intake > 100 || intake != Number) {
-            prompt('enter number value less than 100');
-        }
+        let intake;
+        do {
+            intake = prompt("Change grid by entering a number, max squares = 100");
+            if (intake === null) break;
+            intake = Number(intake);
+        } while (isNaN(intake) || (intake <= 0 || intake > 100));
+        container.replaceChildren();
+        createDivs(intake*10);
     });
 };
 onClick();
+
+// this function is for resetting the grid
 
 function resetGrid () {
     let boxes = document.querySelectorAll('.innerDiv');
