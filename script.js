@@ -1,12 +1,21 @@
 //Adding Divs inside the container
 
 const container = document.getElementById('container');
+let defaultRows = 16;
+let defaultColumns = 16;
+let defaultCell = defaultRows * defaultColumns;
+// let defaultCellSize = container.clientWidth/defaultCell;  
 
 
-function createDivs (numberOfDivs) {
+function createDivs (numberOfDivs, cellSize) {
+   
     for (let i = 0; i < numberOfDivs; i++) {
     const innerDiv = document.createElement('div');
     innerDiv.classList.add('innerDiv');
+    //calling cell size here
+    innerDiv.style.width = `${cellSize}px`;
+    innerDiv.style.height = `${cellSize}px`;
+
     container.appendChild(innerDiv);
 
     //mouse over event for the innner Divs
@@ -16,23 +25,18 @@ function createDivs (numberOfDivs) {
         innerDiv.addEventListener("mouseleave", function(){
         setTimeout(() => {
                 innerDiv.classList.add("passive")
-            }, 500);        
+            }, 200);        
         });
     }
 }
-createDivs(512/2);
+
+createDivs(defaultCell);
+
 
 //button function that helps prompt for change of grid
 
 const buttonGrid = document.querySelector('.buttonGrid');
 const clearGrid = document.querySelector('.clearGrid');
-function resetGrid () {
-    let boxes = document.querySelectorAll('.active');
-    boxes.forEach(box => {
-        box.style.backgroundColor = "white";
-        box.style.opacity = 1;
-    })
-}
 
 // this function is for new grid
 function onClick () {
@@ -40,11 +44,15 @@ function onClick () {
         let intake;
         do {
             intake = prompt("Change grid by entering a number, max squares = 100");
-            if (intake === null) break;
+            if (intake === null) return;
             intake = Number(intake);
         } while (isNaN(intake) || (intake <= 0 || intake > 100));
         container.replaceChildren();
-        createDivs(intake*10);
+        let rows = intake;
+        let columns = intake;
+        let totalCells = rows * columns;
+        let cellSize = container.clientWidth/intake;
+        createDivs(totalCells, cellSize);
     });
 };
 onClick();
