@@ -8,7 +8,6 @@ let defaultCell = defaultRows * defaultColumns;
 
 
 function createDivs (numberOfDivs, cellSize) {
-   
     for (let i = 0; i < numberOfDivs; i++) {
     const innerDiv = document.createElement('div');
     innerDiv.classList.add('innerDiv');
@@ -37,7 +36,7 @@ createDivs(defaultCell);
 
 const buttonGrid = document.querySelector('.buttonGrid');
 const clearGrid = document.querySelector('.clearGrid');
-
+const rainbowGrid = document.querySelector('.rainbowGrid');
 // this function is for new grid
 function onClick () {
     buttonGrid.addEventListener('click', function(){
@@ -71,5 +70,26 @@ function resetGrid () {
 clearGrid.addEventListener('click', resetGrid);
 
 
+//function below turns and resets to rainbow grid
 
+function rainbow () {
+    rainbowGrid.addEventListener('click', function() {
+    container.replaceChildren();
+    let cellSize = container.clientWidth / defaultColumns;
+    createDivs(defaultCell, cellSize);
+    const innerDiv = document.querySelectorAll('.innerDiv');
+    innerDiv.forEach(cell => {
+        cell.addEventListener("mouseenter", function(){
+        cell.style.backgroundColor = getRandomRGB();
+    })
+})
+})
+}
+rainbow();
 
+function getRandomRGB () {
+    let red = Math.floor(Math.random() *256);
+    let green = Math.floor(Math.random() *256);
+    let blue = Math.floor(Math.random() *256);
+    return `rgb(${red}, ${green}, ${blue})`;
+}
